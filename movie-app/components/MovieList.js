@@ -1,28 +1,6 @@
 import React, { Component } from 'react'
 
 export default class MovieList extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      count: 0
-    }
-  }
-
-  increment = () => {
-    const { count } = this.state;
-    this.setState({
-      count: count + 1
-    });
-  }
-
-  decrement = ()=>{
-    const { count } = this.state;
-    this.setState({
-      count: count - 1
-    })
-  }
-
   render() {
     return (
       // React Fragment used to create invisible html tags - https://reactjs.org/docs/fragments.html & https://reactjs.org/docs/fragments.html#short-syntax
@@ -30,10 +8,7 @@ export default class MovieList extends Component {
       <React.Fragment>
 
         <div>
-          <button className="btn btn-primary" onClick={this.increment}>Increment Number</button>
-          <button className="btn btn-primary" onClick={this.decrement}>Decrement Number</button>
-
-          <p>{this.state.count}</p>
+          <p>{this.props.count}</p>
         </div>
 
         <div className="col-lg-4 col-md-6 mb-4">
