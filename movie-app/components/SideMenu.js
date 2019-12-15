@@ -1,4 +1,4 @@
-const SideMenu = (props) => {
+const SideMenu = () => {
   return (
     <div>
       <h1 className="my-4">Shop Name</h1>
@@ -7,9 +7,6 @@ const SideMenu = (props) => {
         <a href="#" className="list-group-item">Category 2</a>
         <a href="#" className="list-group-item">Category 3</a>
       </div>
-      <div>
-      <p>{props.count}</p>
-    </div>
     </div>
   )
 }
