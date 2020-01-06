@@ -18,6 +18,8 @@ import MovieList from '../components/MovieList';
 
 const Home = (props) => {
 
+  const { movies, images } = props
+
   return(
     <div>
       <div className="home-page">
@@ -27,22 +29,28 @@ const Home = (props) => {
               <SideMenu />
             </div>
             <div className="col-lg-9">
-              <Carousel />
+              <Carousel images={ images }/>
               <div className="row">
-                <MovieList movies={props.movies || []}/>
+                <MovieList movies={ movies || [] }/>
               </div>
             </div>
           </div>
         </div>
       </div>
-      
     </div>
   )
 }
 
 Home.getInitialProps= async () => {
   const movies = await getMovies();
-  return { movies };
+  const images = movies.map((movie) =>{
+    return {
+      id: `image-${movie.id}`,
+      url: movie.cover,
+      name: movie.name
+    }
+  })
+  return { movies, images }; //gets sent to props
 }
 
 
