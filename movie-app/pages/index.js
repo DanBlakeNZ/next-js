@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react';
 // https://reactjs.org/docs/hooks-effect.html
 // useEffect hook tells React that your component needs to do something after render
 
-import {getMovies} from "../actions/index";
+import {getMovies, getCategories} from "../actions/index";
 
 
 import SideMenu from '../components/SideMenu';
@@ -18,7 +18,7 @@ import MovieList from '../components/MovieList';
 
 const Home = (props) => {
 
-  const { movies, images } = props
+  const { movies, images, categories } = props
 
   return(
     <div>
@@ -26,7 +26,7 @@ const Home = (props) => {
         <div className="container">
           <div className="row">
             <div className="col-lg-3">
-              <SideMenu />
+              <SideMenu categories={ categories || []}/>
             </div>
             <div className="col-lg-9">
               <Carousel images={ images }/>
@@ -43,6 +43,7 @@ const Home = (props) => {
 
 Home.getInitialProps= async () => {
   const movies = await getMovies();
+  const categories = await getCategories();
   const images = movies.map((movie) =>{
     return {
       id: `image-${movie.id}`,
@@ -50,7 +51,7 @@ Home.getInitialProps= async () => {
       name: movie.name
     }
   })
-  return { movies, images }; //gets sent to props
+  return { movies, images, categories }; //gets sent to props
 }
 
 
