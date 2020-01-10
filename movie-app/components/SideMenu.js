@@ -1,8 +1,11 @@
+import Modal from "./Modal"
+
 const SideMenu = (props) => {
 
   const { categories } = props
   return (
     <div>
+      <Modal />
       <h1 className="my-4">Shop Name</h1>
       <div className="list-group">
         { categories.map(category => <a key={category.id} href="#" className="list-group-item">{category.name}</a>) }
