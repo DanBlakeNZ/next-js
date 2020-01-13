@@ -2,11 +2,11 @@ import { useState } from 'react';
 
 const MovieCreateForm = (props) => {
   const [form, setForm] = useState({
-    name: "Some movie",
-    description: "Some description",
-    rating: 3,
-    image: "http://.....",
-    cover: "http://.....",
+    name: "",
+    description: "",
+    rating: '',
+    image: "",
+    cover: "",
     longDesc: "",
     genre: ""
   });
@@ -53,7 +53,6 @@ const MovieCreateForm = (props) => {
           className="form-control"
           id="name"
           aria-describedby="emailHelp"
-          placeholder="Lord of the Rings"
         />
       </div>
       <div className="form-group">
@@ -65,7 +64,6 @@ const MovieCreateForm = (props) => {
           type="text"
           className="form-control"
           id="description"
-          placeholder="Somewhere in Middle-earth..."
         />
       </div>
       <div className="form-group">
@@ -79,7 +77,6 @@ const MovieCreateForm = (props) => {
           min="0"
           className="form-control"
           id="rating"
-          placeholder="3"
         />
         <small id="emailHelp" className="form-text text-muted">Max: 5, Min: 0 </small>
       </div>
@@ -92,7 +89,6 @@ const MovieCreateForm = (props) => {
           type="text"
           className="form-control"
           id="image"
-          placeholder="http://....."
         />
       </div>
       <div className="form-group">
@@ -104,7 +100,6 @@ const MovieCreateForm = (props) => {
           type="text"
           className="form-control"
           id="cover"
-          placeholder="http://......"
         />
       </div>
       <div className="form-group">
