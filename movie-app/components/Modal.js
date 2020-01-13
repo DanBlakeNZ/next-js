@@ -1,4 +1,4 @@
-const Modal = () =>{
+const Modal = (props) =>{
   // Bootstrap already provides the closing code for close button.
   // On submit, JS will get the close button element and perform a 'click' on it to close the modal.
   let closeButton = null;
@@ -23,11 +23,13 @@ const Modal = () =>{
             </button>
           </div>
           <div className="modal-body">
-            ...
+            {props.children}
           </div>
           <div className="modal-footer">
             <button ref={element => closeButton = element} type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" className="btn btn-primary" onClick={submitModal}>Save changes</button>
+            { props.hasSubmit && 
+                <button type="button" className="btn btn-primary" onClick={submitModal}>Save changes</button>
+            }
           </div>
         </div>
       </div>
